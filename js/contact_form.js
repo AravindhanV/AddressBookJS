@@ -1,3 +1,5 @@
+let contactObj = {};
+
 document.addEventListener("DOMContentLoaded", (event) => {
   const name = document.getElementById("name");
   const nameError = document.querySelector(".name-error");
@@ -55,4 +57,9 @@ const submitForm = (e) => {
 
 const resetForm = () => {
   console.log("Form Reset");
+};
+
+const getInputValue = (selector) => {
+  let value = document.querySelector(selector).value;
+  return value;
 };
