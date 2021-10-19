@@ -52,6 +52,7 @@ const validatePhone = (phone) => {
 };
 
 const submitForm = (e) => {
+  e.preventDefault();
   setContactObject();
   createAndUpdateStorage();
 };
@@ -67,7 +68,7 @@ const setContactObject = () => {
   contactObj.phone = getInputValue("#tel");
   contactObj.city = getInputValue("#city");
   contactObj.state = getInputValue("#state");
-  contactObj.pincode = getInputValue("#id");
+  contactObj.pincode = getInputValue("#zip");
 };
 
 const createAndUpdateStorage = () => {
@@ -78,6 +79,7 @@ const createAndUpdateStorage = () => {
   } else {
     contactList = [contactObj];
   }
+  localStorage.setItem("ContactList", JSON.stringify(contactList));
 };
 
 const getInputValue = (selector) => {
