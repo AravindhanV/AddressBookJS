@@ -48,3 +48,11 @@ const validatePhone = (phone) => {
   let phoneRegex = RegExp("^(\\+\\d{2}|\\d{2})?\\d{10}$");
   if (!phoneRegex.test(phone)) throw "Phone number is incorrect";
 };
+
+const submitForm = (e) => {
+  console.log("Form Submitted");
+};
+
+const resetForm = () => {
+  console.log("Form Reset");
+};
