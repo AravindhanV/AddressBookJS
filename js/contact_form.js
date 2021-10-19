@@ -80,6 +80,7 @@ const createAndUpdateStorage = () => {
     contactList = [contactObj];
   }
   localStorage.setItem("ContactList", JSON.stringify(contactList));
+  window.location.replace(site_properties.home_page);
 };
 
 const getInputValue = (selector) => {
