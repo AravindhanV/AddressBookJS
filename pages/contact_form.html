@@ -29,11 +29,12 @@
         <div class="row-content">
           <label class="label text" for="name">Full Name</label>
           <input class="input" type="text" id="name" name="name" required />
-          <error-output class="text-error" for="text"></error-output>
+          <error-output class="text-error" for="name"></error-output>
         </div>
         <div class="row-content">
           <label class="label text" for="profile">Phone Number</label>
           <input class="input" type="tel" id="tel" name="phone" required />
+          <error-output class="text-error" for="tel"></error-output>
         </div>
         <div class="row-content">
           <div class="text-row">
@@ -44,7 +45,9 @@
               name="address"
               placeholder=""
               style="height: 100px"
+              required
             ></textarea>
+            <error-output class="text-error" for="address"></error-output>
           </div>
         </div>
         <div class="row-content location-row">
