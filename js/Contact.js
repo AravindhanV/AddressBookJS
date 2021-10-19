@@ -5,14 +5,19 @@ class Contact {
     return this.name;
   }
   set name(name) {
-    this.name = name;
+    let nameRegex = RegExp("^[A-Z][a-zA-Z]{2}[a-zA-Z\\s]*$");
+    if (!nameRegex.test(name)) throw "Name is incorrect";
+    else this.name = name;
   }
 
   get address() {
     return this.address;
   }
   set address(address) {
-    this.address = address;
+    address += " ";
+    let addressRegex = RegExp("^(.{3,}\\s){2,}$");
+    if (!addressRegex.test(address)) throw "Address is incorrect";
+    else this.address = address;
   }
 
   get phone() {
@@ -20,6 +25,9 @@ class Contact {
   }
   set phone(phone) {
     this.phone = phone;
+    let phoneRegex = RegExp("^(\\+\\d{2}|\\d{2})?\\d{10}$");
+    if (!phoneRegex.test(phone)) throw "Phone number is incorrect";
+    else this.phone = phone;
   }
 
   get city() {
