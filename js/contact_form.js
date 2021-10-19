@@ -52,11 +52,32 @@ const validatePhone = (phone) => {
 };
 
 const submitForm = (e) => {
-  console.log("Form Submitted");
+  setContactObject();
+  createAndUpdateStorage();
 };
 
 const resetForm = () => {
   console.log("Form Reset");
+};
+
+const setContactObject = () => {
+  contactObj.id = new Date().getTime();
+  contactObj.name = getInputValue("#name");
+  contactObj.address = getInputValue("#address");
+  contactObj.phone = getInputValue("#tel");
+  contactObj.city = getInputValue("#city");
+  contactObj.state = getInputValue("#state");
+  contactObj.pincode = getInputValue("#id");
+};
+
+const createAndUpdateStorage = () => {
+  let contactList = JSON.parse(localStorage.getItem("ContactList"));
+
+  if (contactList) {
+    contactList.push(contactObj);
+  } else {
+    contactList = [contactObj];
+  }
 };
 
 const getInputValue = (selector) => {
