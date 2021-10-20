@@ -78,8 +78,36 @@ const validatePhone = (phone) => {
 
 const submitForm = (e) => {
   e.preventDefault();
-  setContactObject();
-  createAndUpdateStorage();
+  try {
+    setContactObject();
+    if (site_properties.use_local_storage) {
+      createAndUpdateStorage();
+      resetForm();
+      window.location.replace(site_properties.home_page);
+    } else {
+      createAndUpdateServer();
+    }
+  } catch (e) {
+    console.error(e);
+    return;
+  }
+};
+
+const createAndUpdateServer = () => {
+  let postURL = site_properties.server_url;
+  let method = "POST";
+  if (isUpdate) {
+    methodCall = "PUT";
+    postURL = postURL + contactObj.id.toString();
+  }
+  makeServiceCall(methodCall, postURL, true, contactObj)
+    .then((responseText) => {
+      resetForm();
+      window.location.replace(site_properties.home_page);
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
 
 const resetForm = () => {
