@@ -116,7 +116,6 @@ body {
 .table-main {
   width: 80%;
   margin: 0 auto;
-  overflow: auto;
 }
 
 .table {
@@ -130,4 +129,11 @@ td,
 th {
   text-align: left;
   padding: 5px 8px;
+}
+
+th {
+  color: #658292;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
 }
