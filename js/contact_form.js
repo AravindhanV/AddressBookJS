@@ -87,7 +87,7 @@ const resetForm = () => {
 };
 
 const setContactObject = () => {
-  contactObj.id = new Date().getTime();
+  if (!isUpdate) contactObj.id = new Date().getTime();
   contactObj.name = getInputValue("#name");
   contactObj.address = getInputValue("#address");
   contactObj.phone = getInputValue("#tel");
@@ -100,7 +100,12 @@ const createAndUpdateStorage = () => {
   let contactList = JSON.parse(localStorage.getItem("ContactList"));
 
   if (contactList) {
-    contactList.push(contactObj);
+    if (isUpdate) {
+      const index = contactList.map((data) => data.id).indexOf(contactObj.id);
+      contactList.splice(index, 1, contactObj);
+    } else {
+      contactList.push(contactObj);
+    }
   } else {
     contactList = [contactObj];
   }
