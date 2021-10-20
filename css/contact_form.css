@@ -201,3 +201,36 @@ error-output {
 #addButton {
   margin-right: 30px;
 }
+
+@media only screen and (max-width: 1050px) {
+  .location-row {
+    flex-direction: column;
+    margin-top: 0px;
+  }
+
+  .location-row div:nth-of-type(2) {
+    margin: 0px;
+  }
+
+  .location-row div {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 785px) {
+  .buttonParent {
+    flex-direction: column;
+  }
+
+  .button {
+    margin-top: 15px;
+  }
+
+  #addButton {
+    margin: 0px;
+  }
+
+  .form-head-title {
+    font-size: 3.3vw;
+  }
+}
