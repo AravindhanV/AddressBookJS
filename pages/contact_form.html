@@ -35,18 +35,33 @@
         </div>
         <div class="row-content">
           <label class="label text" for="name">Full Name</label>
-          <input class="input" type="text" id="name" name="name" required />
+          <input
+            autocomplete="new-password"
+            class="input"
+            type="text"
+            id="name"
+            name="name"
+            required
+          />
           <error-output class="name-error" for="name"></error-output>
         </div>
         <div class="row-content">
           <label class="label text" for="profile">Phone Number</label>
-          <input class="input" type="tel" id="tel" name="phone" required />
+          <input
+            autocomplete="new-password"
+            class="input"
+            type="tel"
+            id="tel"
+            name="phone"
+            required
+          />
           <error-output class="phone-error" for="tel"></error-output>
         </div>
         <div class="row-content">
           <div class="text-row">
             <label class="label text" for="address">Address</label>
             <textarea
+              autocomplete="new-password"
               id="address"
               class="input"
               name="address"
@@ -76,7 +91,14 @@
           </div>
           <div>
             <label class="label text" for="zip">Zipcode</label>
-            <input class="input" type="number" id="zip" name="zip" required />
+            <input
+              autocomplete="new-password"
+              class="input"
+              type="number"
+              id="zip"
+              name="zip"
+              required
+            />
           </div>
         </div>
         <div class="buttonParent">
