@@ -97,10 +97,10 @@ const createAndUpdateServer = () => {
   let postURL = site_properties.server_url;
   let method = "POST";
   if (isUpdate) {
-    methodCall = "PUT";
+    method = "PUT";
     postURL = postURL + contactObj.id.toString();
   }
-  makeServiceCall(methodCall, postURL, true, contactObj)
+  makeServiceCall(method, postURL, true, contactObj)
     .then((responseText) => {
       resetForm();
       window.location.replace(site_properties.home_page);
