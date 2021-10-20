@@ -1,4 +1,5 @@
 let contactObj = {};
+let isUpdate = false;
 
 document.addEventListener("DOMContentLoaded", (event) => {
   const name = document.getElementById("name");
@@ -33,7 +34,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
       addressError.textContent = e;
     }
   });
+
+  checkForUpdate();
 });
+
+const checkForUpdate = () => {
+  const contactJson = localStorage.getItem("editEmp");
+  isUpdate = contactJson ? true : false;
+  if (!isUpdate) return;
+  contactObj = JSON.parse(contactJson);
+  setForm();
+};
+
+const setForm = () => {
+  setValue("#name", contactObj.name);
+  setValue("#phoneNumber", contactObj.phone);
+  setValue("#address", contactObj.address);
+  setValue("#city", contactObj.city);
+  setValue("#state", contactObj.state);
+  setValue("#zip", contactObj.pincode);
+};
+
+const setValue = (id, value) => {
+  const element = document.querySelector(id);
+  element.value = value;
+};
 
 const validateName = (name) => {
   let nameRegex = RegExp("^[A-Z][a-zA-Z]{2}[a-zA-Z\\s]*$");
