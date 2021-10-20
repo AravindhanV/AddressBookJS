@@ -97,7 +97,19 @@ const remove = (node) => {
     .map((contactPerson) => contactPerson.id)
     .indexOf(contactData.id);
   contactList.splice(index, 1);
-  localStorage.setItem("ContactList", JSON.stringify(contactList));
-  document.querySelector(".addr-count").textContent = contactList.length;
-  createInnerHtml();
+  if (site_properties.use_local_storage) {
+    localStorage.setItem("ContactList", JSON.stringify(contactList));
+    document.querySelector(".addr-count").textContent = contactList.length;
+    createInnerHtml();
+  } else {
+    const deleteURL = site_properties.server_url + contactData.id.toString();
+    makeServiceCall("DELETE", deleteURL, false)
+      .then((responseText) => {
+        document.querySelector(".addr-count").textContent = contactList.length;
+        createInnerHtml();
+      })
+      .catch((error) => {
+        console.log("DELETE error status: " + JSON.stringify(error));
+      });
+  }
 };
