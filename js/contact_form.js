@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 const checkForUpdate = () => {
-  const contactJson = localStorage.getItem("editEmp");
+  const contactJson = localStorage.getItem("editContact");
   isUpdate = contactJson ? true : false;
   if (!isUpdate) return;
   contactObj = JSON.parse(contactJson);
@@ -48,7 +48,7 @@ const checkForUpdate = () => {
 
 const setForm = () => {
   setValue("#name", contactObj.name);
-  setValue("#phoneNumber", contactObj.phone);
+  setValue("#tel", contactObj.phone);
   setValue("#address", contactObj.address);
   setValue("#city", contactObj.city);
   setValue("#state", contactObj.state);

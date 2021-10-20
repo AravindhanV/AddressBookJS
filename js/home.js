@@ -59,6 +59,13 @@ const createInnerHtml = () => {
   document.querySelector("#table-display").innerHTML = innerHtml;
 };
 
+const update = (node) => {
+  let contactData = contactList.find((data) => data.id == node.id);
+  if (!contactData) return;
+  localStorage.setItem("editContact", JSON.stringify(contactData));
+  window.location.replace(site_properties.add_contact_page);
+};
+
 const remove = (node) => {
   let contactData = contactList.find(
     (contactPerson) => contactPerson.id == node.id
