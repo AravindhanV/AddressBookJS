@@ -1,0 +1,22 @@
+{
+  "ContactDB": [
+    {
+      "id": 1,
+      "name": "Name1",
+      "address": "Address one",
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "phone": "2222222222",
+      "pincode": "987654"
+    },
+    {
+      "id": 2,
+      "name": "Name2",
+      "address": "Address Two",
+      "city": "Hyderabad",
+      "state": "Telengana",
+      "phone": "3333333333",
+      "pincode": "452345"
+    }
+  ]
+}
