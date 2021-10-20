@@ -36,11 +36,11 @@ const createInnerHtml = () => {
               <th></th>
             </th>
           </thead>`;
-  if (contactList.length == 0) return;
-  let innerHtml = `${headerHtml}`;
-  for (const contactData of contactList) {
-    console.log(contactData);
-    innerHtml = `${innerHtml}
+  let innerHtml = "";
+  if (!contactList.length == 0) {
+    innerHtml = `${headerHtml}`;
+    for (const contactData of contactList) {
+      innerHtml = `${innerHtml}
           <tr>
           <td>${contactData.name}</td>
           <td>${contactData.address}</td>
@@ -49,11 +49,26 @@ const createInnerHtml = () => {
           <td>${contactData.pincode}</td>
           <td>${contactData.phone}</td>
           <td>
-          <img id="1" onclick="remove(this)" alt="delete" src="../assets/delete_contact.svg">
-          <img id="1" alt="edit" onclick="update(this)" src="../assets/edit_contact.svg">
+          <img id="${contactData.id}" onclick="remove(this)" alt="delete" src="../assets/delete_contact.svg">
+          <img id="${contactData.id}" alt="edit" onclick="update(this)" src="../assets/edit_contact.svg">
           </td>
           </tr>
           `;
+    }
   }
   document.querySelector("#table-display").innerHTML = innerHtml;
+};
+
+const remove = (node) => {
+  let contactData = contactList.find(
+    (contactPerson) => contactPerson.id == node.id
+  );
+  if (!contactData) return;
+  const index = contactList
+    .map((contactPerson) => contactPerson.id)
+    .indexOf(contactData.id);
+  contactList.splice(index, 1);
+  localStorage.setItem("ContactList", JSON.stringify(contactList));
+  document.querySelector(".addr-count").textContent = contactList.length;
+  createInnerHtml();
 };
