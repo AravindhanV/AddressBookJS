@@ -112,3 +112,22 @@ body {
   height: 24xp;
   margin-right: 10px;
 }
+
+.table-main {
+  width: 80%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  min-width: 800px;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 5px 8px;
+}
